@@ -1,0 +1,8 @@
+{
+  "configurations": [
+    {
+      "name": "fastfeet_backend",
+      "type": "node"
+    }
+  ]
+}
