@@ -1,0 +1,8 @@
+{
+  "name": "fastfeet_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:pnsidou/fastfeet_backend.git",
+  "author": "Pedro Niederhageböck Sidou",
+  "license": "GPL 3.0"
+}
