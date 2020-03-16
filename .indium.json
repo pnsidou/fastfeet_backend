@@ -2,7 +2,9 @@
   "configurations": [
     {
       "name": "fastfeet_backend",
-      "type": "node"
+      "type": "node",
+      "program": "nodemon -r sucrase/register",
+      "args": "src/server.js"
     }
   ]
 }
