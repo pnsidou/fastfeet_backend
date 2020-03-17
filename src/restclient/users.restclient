@@ -1,0 +1,6 @@
+# sign up request
+POST http://localhost:3333/users
+Content-type: application/json
+
+{"name": "Pedro Niederhageböck Sidou", "email": "pnsidou@gmail.com", "password": "270390"}
+

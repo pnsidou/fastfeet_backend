@@ -10,11 +10,11 @@ Gostack. The goals of each challenge are described below.
 - [X] prettier
 - [X] nodemon
 - [X] sucrase
-- [ ] sequelize
+- [X] sequelize
 
 ### Features
 - [ ] User authentication with mail and password
-- [ ] Register a sequelize seed for an administrator user
+- [X] Register a sequelize seed for an administrator user
 - [ ] Input data validation
 - [ ] Recipient database holding name and address(street, house number,
 city, state, zip code) information
