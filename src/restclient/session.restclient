@@ -1,0 +1,5 @@
+# sign in route
+POST http://localhost:3333/sessions
+Content-type: application/json
+
+{"email": "pnsidou@gmail.com", "password": "270390"}

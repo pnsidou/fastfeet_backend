@@ -13,8 +13,8 @@ Gostack. The goals of each challenge are described below.
 - [X] sequelize
 
 ### Features
-- [ ] User authentication with mail and password
+- [X] User authentication with mail and password
 - [X] Register a sequelize seed for an administrator user
-- [ ] Input data validation
+- [X] Input data validation
 - [ ] Recipient database holding name and address(street, house number,
 city, state, zip code) information
