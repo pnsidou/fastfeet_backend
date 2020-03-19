@@ -27,6 +27,19 @@ class RecipientController {
 
     return res.json(recipient);
   }
+
+  async delete(req: Request, res: Response) {
+    const id = req.params.id;
+    const recipient = await Recipient.findByPk(id, {});
+
+    if (!recipient) {
+      return res.status(400).json({ error: 'Recipient does not exist' });
+    }
+
+    await Recipient.destroy({ where: { id } });
+
+    return res.json({ success: 'recipient deleted', recipient });
+  }
 }
 
 export default new RecipientController();
