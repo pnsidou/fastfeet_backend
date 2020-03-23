@@ -24,6 +24,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@types/sequelize": "^4.28.8",
     "bcrypt": "^4.0.1",
     "bcryptjs": "^2.4.3",
     "crypto": "^1.0.1",
