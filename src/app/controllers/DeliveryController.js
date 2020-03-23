@@ -34,6 +34,12 @@ const include = [
 ];
 
 class DeliveryController {
+  async index(req, res) {
+    const deliveries = await Delivery.findAll({ include, attributes });
+
+    return res.json(deliveries);
+  }
+
   async store(req: Request, res: Response) {
     const schema = Yup.object().shape({
       product: Yup.string().required(),
