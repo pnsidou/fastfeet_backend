@@ -5,6 +5,23 @@ import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
 
 class DeliverymanController {
+  async index(req: Request, res: Response) {
+    const deliverymen = await Deliveryman.findAll({
+      include: {
+        model: File,
+        as: 'avatar',
+        attributes: ['id', 'path', 'url'],
+      },
+    });
+
+    const filtered_deliverymen = deliverymen.map(deliveryman => {
+      const { id, name, email, avatar } = deliveryman;
+
+      return { id, name, email, avatar };
+    });
+    return res.json(filtered_deliverymen);
+  }
+
   async store(req: Request, res: Response) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
