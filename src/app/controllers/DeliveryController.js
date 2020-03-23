@@ -90,6 +90,26 @@ class DeliveryController {
       deliveryman,
     });
   }
+
+  async delete(req, res) {
+    const id = req.params.id;
+
+    if (!id) {
+      return res.status(400).json({ error: 'No delivery id supplied' });
+    }
+
+    const delivery = await Delivery.findByPk(id, { include, attributes });
+
+    if (!delivery) {
+      return res
+        .status(400)
+        .json({ error: `Delivery with id ${id} does not exist` });
+    }
+
+    Delivery.destroy({ where: { id } });
+
+    return res.json({ deleted: delivery });
+  }
 }
 
 export default new DeliveryController();
