@@ -9,4 +9,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxN
 
 {"product": "Produto muito foda", "recipient_id": 1, "deliveryman_id": 2}
 
+# update delivery
+PUT http://localhost:3333/deliveries/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTg0NjMzMTQzLCJleHAiOjE1ODUyMzc5NDN9.rYR00PPpqdGtpKQH5hFjcXx4r4yd7cvhT-TFz0cLYcs
+
+{"product": "Produto muito foda", "recipient_id": 1, "deliveryman_id": 2}
+
 

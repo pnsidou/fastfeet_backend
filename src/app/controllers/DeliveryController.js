@@ -6,7 +6,13 @@ import Recipient from '../models/Recipient';
 import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
 
-import { createOptions } from 'sequelize';
+import { createOptions, Sequelize } from 'sequelize';
+
+const schema = Yup.object().shape({
+  product: Yup.string().required(),
+  recipient_id: Yup.number().required(),
+  deliveryman_id: Yup.number().required(),
+});
 
 const attributes = ['product', 'cancelled_at', 'start_date', 'end_date'];
 
@@ -41,12 +47,6 @@ class DeliveryController {
   }
 
   async store(req: Request, res: Response) {
-    const schema = Yup.object().shape({
-      product: Yup.string().required(),
-      recipient_id: Yup.number().required(),
-      deliveryman_id: Yup.number().required(),
-    });
-
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Input validation failed' });
     }
@@ -55,6 +55,32 @@ class DeliveryController {
 
     const { product, recipient, deliveryman } = await Delivery.findByPk(id, {
       include,
+    });
+
+    return res.json({
+      id,
+      product,
+      recipient,
+      deliveryman,
+    });
+  }
+
+  async update(req: Request, res: Response) {
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Input validation failed' });
+    }
+
+    const id = req.params.id;
+
+    if (!id) {
+      return res.status(400).json({ error: 'No delivery id supplied' });
+    }
+
+    await Delivery.update(req.body, { where: { id }, include, attributes });
+
+    const { product, recipient, deliveryman } = await Delivery.findByPk(id, {
+      include,
+      attributes,
     });
 
     return res.json({
