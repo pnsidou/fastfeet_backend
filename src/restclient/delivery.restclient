@@ -1,0 +1,5 @@
+# product retrieval
+POST http://localhost:3333/delivery/18/start
+Content-Type: application/json
+
+{"deliveryman": 2}
