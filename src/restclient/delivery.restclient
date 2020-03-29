@@ -6,4 +6,3 @@ Content-Type: application/json
 
 # finish delivery
 POST http://localhost:3333/delivery/18/finish
-

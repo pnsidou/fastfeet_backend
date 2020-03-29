@@ -10,6 +10,8 @@ import DeliverymanController from './app/controllers/DeliverymanController';
 import DeliveryController from './app/controllers/DeliveryController';
 import StartDeliveryController from './app/controllers/StartDeliveryController';
 import FinishDeliveryController from './app/controllers/FinishDeliveryController';
+import ProblemController from './app/controllers/ProblemController';
+import CancelController from './app/controllers/CancelController';
 import FileController from './app/controllers/FileController';
 
 import authMiddleware from './app/middlewares/auth';
@@ -22,6 +24,11 @@ routes.post('/sessions', SessionController.store);
 
 routes.post('/delivery/:delivery_id/start', StartDeliveryController.store);
 routes.post('/delivery/:delivery_id/finish', FinishDeliveryController.store);
+
+routes.post('/delivery/:delivery_id/problem', ProblemController.store);
+routes.get('/delivery/:delivery_id/problem', ProblemController.index);
+
+routes.delete('/problem/:problem_id/cancel-delivery', CancelController.delete);
 
 routes.use(authMiddleware);
 
