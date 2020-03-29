@@ -25,6 +25,7 @@ routes.post('/delivery/:delivery_id/start', StartDeliveryController.store);
 routes.post('/delivery/:delivery_id/finish', FinishDeliveryController.store);
 
 routes.post('/delivery/:delivery_id/problem', ProblemController.store);
+routes.get('/delivery/:delivery_id/problem', ProblemController.index);
 
 routes.use(authMiddleware);
 

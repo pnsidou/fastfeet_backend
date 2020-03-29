@@ -28,6 +28,14 @@ class ProblemController {
 
     return res.json(problem);
   }
+
+  async index(req, res) {
+    const { delivery_id } = req.params;
+
+    const problems = await Problem.findAll({ where: { delivery_id }, include });
+
+    return res.json({ problems });
+  }
 }
 
 export default new ProblemController();
