@@ -32,9 +32,11 @@ class ProblemController {
   async index(req, res) {
     const { delivery_id } = req.params;
 
-    const problems = await Problem.findAll({ where: { delivery_id }, include });
+    const problems = delivery_id
+      ? await Problem.findAll({ where: { delivery_id }, include })
+      : await Problem.findAll({ include });
 
-    return res.json({ problems });
+    return res.json(problems);
   }
 }
 

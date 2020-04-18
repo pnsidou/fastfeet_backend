@@ -12,7 +12,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxN
 # update deliveryman
 PUT http://localhost:3333/deliverymen/5
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTg0NjMzMTQzLCJleHAiOjE1ODUyMzc5NDN9.rYR00PPpqdGtpKQH5hFjcXx4r4yd7cvhT-TFz0cLYcs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTg2MTk2MTU2LCJleHAiOjE1ODY4MDA5NTZ9.65upzwN94731SIo-baTT3j-xZ5z6EaSFkRYbBXuGMRk
 
 {"name": "José Júnior da Silva", "email": "juninhodasilva@gmail.com"}
 

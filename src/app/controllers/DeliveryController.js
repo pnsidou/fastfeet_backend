@@ -6,15 +6,26 @@ import Recipient from '../models/Recipient';
 import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
 
-import { createOptions, Sequelize } from 'sequelize';
+import { createOptions, Sequelize, Op } from 'sequelize';
 
 const schema = Yup.object().shape({
   product: Yup.string().required(),
-  recipient_id: Yup.number().required(),
-  deliveryman_id: Yup.number().required(),
+  recipient_id: Yup.number()
+    .integer()
+    .required(),
+  deliveryman_id: Yup.number()
+    .integer()
+    .required(),
 });
 
-const attributes = ['product', 'cancelled_at', 'start_date', 'end_date'];
+const attributes = [
+  'id',
+  'product',
+  'cancelled_at',
+  'start_date',
+  'end_date',
+  'status',
+];
 
 const include = [
   {
@@ -35,14 +46,18 @@ const include = [
   {
     model: File,
     as: 'signature',
-    attributes: ['id', 'name', 'url'],
+    attributes: ['id', 'url'],
   },
 ];
 
 class DeliveryController {
   async index(req, res) {
-    const deliveries = await Delivery.findAll({ include, attributes });
+    const { q: query } = req.params;
+    const where = query ? { name: { [Op.iLike]: '%' + query + '%' } } : null;
 
+    console.log('delivery controller', where);
+    const deliveries = await Delivery.findAll({ where, include, attributes });
+    console.log('dleiveries');
     return res.json(deliveries);
   }
 
@@ -106,9 +121,13 @@ class DeliveryController {
         .json({ error: `Delivery with id ${id} does not exist` });
     }
 
-    Delivery.destroy({ where: { id } });
+    try {
+      const response = await Delivery.destroy({ where: { id } });
 
-    return res.json({ deleted: delivery });
+      return res.json({ deleted: delivery });
+    } catch (error) {
+      return res.status(400).json({ error });
+    }
   }
 }
 

@@ -6,20 +6,20 @@ import File from '../models/File';
 
 class DeliverymanController {
   async index(req: Request, res: Response) {
-    const deliverymen = await Deliveryman.findAll({
-      include: {
-        model: File,
-        as: 'avatar',
-        attributes: ['id', 'path', 'url'],
-      },
-    });
+    try {
+      const deliverymen = await Deliveryman.findAll({
+        include: {
+          model: File,
+          as: 'avatar',
+          attributes: ['id', 'path', 'url'],
+        },
+        attributes: ['id', 'name', 'email'],
+      });
 
-    const filtered_deliverymen = deliverymen.map(deliveryman => {
-      const { id, name, email, avatar } = deliveryman;
-
-      return { id, name, email, avatar };
-    });
-    return res.json(filtered_deliverymen);
+      return res.json(deliverymen);
+    } catch (error) {
+      res.status(500).json({ error });
+    }
   }
 
   async store(req: Request, res: Response) {
@@ -52,9 +52,12 @@ class DeliverymanController {
   }
 
   async update(req: Request, res: Response) {
+    const body = req.body;
     const schema = Yup.object().shape({
-      name: Yup.string(),
-      email: Yup.string().email(),
+      name: Yup.string().required(),
+      email: Yup.string()
+        .email()
+        .required(),
     });
 
     if (!(await schema.isValid(req.body))) {

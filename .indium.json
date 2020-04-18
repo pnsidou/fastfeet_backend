@@ -3,7 +3,7 @@
     {
       "name": "fastfeet_backend",
       "type": "node",
-      "program": "nodemon -r sucrase/register",
+      "program": "yarn nodemon -r sucrase/register",
       "args": "src/server.js"
     }
   ]

@@ -14,7 +14,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxN
 
 # list recipients
 GET http://localhost:3333/recipients
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTg0NjMzMTQzLCJleHAiOjE1ODUyMzc5NDN9.rYR00PPpqdGtpKQH5hFjcXx4r4yd7cvhT-TFz0cLYcs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTg2MzAwODg2LCJleHAiOjE1ODY5MDU2ODZ9.d7tpuSoa3VlKbe4wP9i25E7XzAoOUZHhIeM_SOqmML4
 
 # delete recipient
 DELETE http://localhost:3333/recipients/1
