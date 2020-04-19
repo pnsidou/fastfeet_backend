@@ -13,12 +13,6 @@ git clone https://github.com/pnsidou/fastfeet_backend.git
 cd fastfeet_backend
 yarn
 ```
-
-### JWT secret
-The authentication of admin users is made with JWT tokens. Its generation requires a personal secret, defined in the variable APP_SECRET
-```
-APP_SECRET=your_personal_secret
-```
 ### Database configuration:
 This app make use of a posgresql database. Make sure you have one running and  configure it trough the respective environment variables on the .env file. You can just rename the .env.example and replace the values with your personal ones.
 ```
@@ -33,7 +27,7 @@ To populate the database with the needed tables, you should run the sequelize mi
 ```
 yarn sequelize migrate:all
 ```
-# Database seeds:
+### Database seeds:
 By default, there's one admin user, admin@fastfeet.com with password 123456, defined in a sequelize seed. You can
 use it by running the seed o you can create another one with a postgresql client. There's no route for adding admin users
 on the backend itself. The command to run the seed is:
@@ -42,17 +36,21 @@ on the backend itself. The command to run the seed is:
 yarn sequelize db:seeds:all
 ```
 
-# Running
+### JWT secret
+The authentication of admin users is made with JWT tokens. Its generation requires a personal secret, defined in the variable APP_SECRET
+```
+APP_SECRET=your_personal_secret
+```
+
+## Running
 To start the server in development mode, you can issue the commands:
 ```
 yarn dev
 ```
-Or:
+Or, if you want to launch node with the --inspect flag, for debugging purposes:
 ```
 yarn dev:debug
 ```
-If you want to launch node with the --inspect flag, for debugging purposes.
-
 Development mode uses nodemon to watch for changes in you source code files and restart the server
 on the fly, as soon as a modification is made. If you don't need this, you can simply
 run:
