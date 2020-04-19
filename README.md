@@ -1,7 +1,6 @@
 # Fastfeet - backend
-This repository contains the backend of the application Fastfeet,
-consisting of the first and second challenges of the bootcamp
-Gostack. The goals of each challenge are described below.
+This repository contains the backend of the application Fastfeet, a fake transport app. The application is the final challenge of the bootcamp gostack, focused on the stack nodejs for backend, reactjs for web interface and react-native for mobile app . This application is not inteded to be safe neither to be used on a real situation.
+
 
 ## Challenge 1/4
 ### Tools required in the project
